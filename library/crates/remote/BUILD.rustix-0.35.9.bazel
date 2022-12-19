@@ -136,7 +136,6 @@ rust_library(
             "@rules_rust//rust/platform:aarch64-apple-darwin",
         ): [
             "@raze__errno__0_2_8//:errno",
-            "@raze__libc__0_2_132//:libc",
         ],
         "//conditions:default": [],
     }) + selects.with_or({
