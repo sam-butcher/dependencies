@@ -26,14 +26,17 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0"
+    "notice",  # Apache-2.0 from expression "Apache-2.0 OR MIT"
 ])
 
 # Generated Targets
 
 rust_library(
-    name = "fluvio_helm",
+    name = "zeroize",
     srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "alloc",
+    ],
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
@@ -42,16 +45,15 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=fluvio_helm",
+        "crate-name=zeroize",
         "manual",
     ],
-    version = "0.4.3",
+    version = "1.5.7",
     # buildifier: leave-alone
     deps = [
-        "@raze__fluvio_command__0_2_1//:fluvio_command",
-        "@raze__serde__1_0_145//:serde",
-        "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__thiserror__1_0_38//:thiserror",
-        "@raze__tracing__0_1_35//:tracing",
     ],
 )
+
+# Unsupported target "zeroize" with type "test" omitted
+
+# Unsupported target "zeroize_derive" with type "test" omitted

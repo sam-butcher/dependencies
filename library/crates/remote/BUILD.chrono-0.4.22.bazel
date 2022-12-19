@@ -41,11 +41,13 @@ rust_library(
     aliases = {
     },
     crate_features = [
+        "alloc",
         "clock",
         "default",
         "iana-time-zone",
         "js-sys",
         "oldtime",
+        "serde",
         "std",
         "time",
         "wasm-bindgen",
@@ -69,6 +71,7 @@ rust_library(
         "@raze__iana_time_zone__0_1_53//:iana_time_zone",
         "@raze__num_integer__0_1_45//:num_integer",
         "@raze__num_traits__0_2_15//:num_traits",
+        "@raze__serde__1_0_145//:serde",
         "@raze__time__0_1_45//:time",
     ] + selects.with_or({
         (

@@ -38,7 +38,7 @@ load(
 )
 
 cargo_build_script(
-    name = "thiserror_build_script",
+    name = "parking_lot_core_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
@@ -52,58 +52,64 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "1.0.37",
+    version = "0.9.5",
     visibility = ["//visibility:private"],
     deps = [
-    ],
+    ] + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-apple-darwin",
+            "@rules_rust//rust/platform:x86_64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:aarch64-apple-darwin",
+        ): [
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@raze__windows_sys__0_42_0//:windows_sys",
+        ],
+        "//conditions:default": [],
+    }),
 )
 
 rust_library(
-    name = "thiserror",
+    name = "parking_lot_core",
     srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
-    proc_macro_deps = [
-        "@raze__thiserror_impl__1_0_37//:thiserror_impl",
-    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=thiserror",
+        "crate-name=parking_lot_core",
         "manual",
     ],
-    version = "1.0.37",
+    version = "0.9.5",
     # buildifier: leave-alone
     deps = [
-        ":thiserror_build_script",
-    ],
+        ":parking_lot_core_build_script",
+        "@raze__cfg_if__1_0_0//:cfg_if",
+        "@raze__smallvec__1_9_0//:smallvec",
+    ] + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-apple-darwin",
+            "@rules_rust//rust/platform:x86_64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:aarch64-apple-darwin",
+        ): [
+            "@raze__libc__0_2_132//:libc",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@raze__windows_sys__0_42_0//:windows_sys",
+        ],
+        "//conditions:default": [],
+    }),
 )
-
-# Unsupported target "compiletest" with type "test" omitted
-
-# Unsupported target "test_backtrace" with type "test" omitted
-
-# Unsupported target "test_deprecated" with type "test" omitted
-
-# Unsupported target "test_display" with type "test" omitted
-
-# Unsupported target "test_error" with type "test" omitted
-
-# Unsupported target "test_expr" with type "test" omitted
-
-# Unsupported target "test_from" with type "test" omitted
-
-# Unsupported target "test_generics" with type "test" omitted
-
-# Unsupported target "test_lints" with type "test" omitted
-
-# Unsupported target "test_option" with type "test" omitted
-
-# Unsupported target "test_path" with type "test" omitted
-
-# Unsupported target "test_source" with type "test" omitted
-
-# Unsupported target "test_transparent" with type "test" omitted

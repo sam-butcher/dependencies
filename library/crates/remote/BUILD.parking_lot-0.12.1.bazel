@@ -26,14 +26,17 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0"
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
 ])
 
 # Generated Targets
 
 rust_library(
-    name = "fluvio_helm",
+    name = "parking_lot",
     srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "default",
+    ],
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
@@ -42,16 +45,15 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=fluvio_helm",
+        "crate-name=parking_lot",
         "manual",
     ],
-    version = "0.4.3",
+    version = "0.12.1",
     # buildifier: leave-alone
     deps = [
-        "@raze__fluvio_command__0_2_1//:fluvio_command",
-        "@raze__serde__1_0_145//:serde",
-        "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__thiserror__1_0_38//:thiserror",
-        "@raze__tracing__0_1_35//:tracing",
+        "@raze__lock_api__0_4_8//:lock_api",
+        "@raze__parking_lot_core__0_9_5//:parking_lot_core",
     ],
 )
+
+# Unsupported target "issue_203" with type "test" omitted

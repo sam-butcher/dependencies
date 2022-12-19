@@ -26,14 +26,16 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0"
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
 ])
 
 # Generated Targets
 
 rust_library(
-    name = "fluvio_helm",
+    name = "dirs_sys_next",
     srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
@@ -42,16 +44,27 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=fluvio_helm",
+        "crate-name=dirs-sys-next",
         "manual",
     ],
-    version = "0.4.3",
+    version = "0.1.2",
     # buildifier: leave-alone
     deps = [
-        "@raze__fluvio_command__0_2_1//:fluvio_command",
-        "@raze__serde__1_0_145//:serde",
-        "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__thiserror__1_0_38//:thiserror",
-        "@raze__tracing__0_1_35//:tracing",
-    ],
+    ] + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-apple-darwin",
+            "@rules_rust//rust/platform:x86_64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:aarch64-apple-darwin",
+        ): [
+            "@raze__libc__0_2_132//:libc",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@raze__winapi__0_3_9//:winapi",
+        ],
+        "//conditions:default": [],
+    }),
 )

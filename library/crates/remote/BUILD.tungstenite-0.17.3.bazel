@@ -58,7 +58,7 @@ rust_library(
         "@raze__log__0_4_8//:log",
         "@raze__rand__0_8_5//:rand",
         "@raze__sha_1__0_10_1//:sha_1",
-        "@raze__thiserror__1_0_37//:thiserror",
+        "@raze__thiserror__1_0_38//:thiserror",
         "@raze__url__2_3_0//:url",
         "@raze__utf_8__0_7_6//:utf_8",
     ],

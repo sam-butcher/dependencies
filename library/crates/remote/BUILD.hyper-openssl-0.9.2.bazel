@@ -38,16 +38,17 @@ load(
 )
 
 cargo_build_script(
-    name = "num_traits_build_script",
+    name = "hyper_openssl_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
     crate_features = [
-        "std",
+        "default",
+        "tcp",
     ],
     crate_root = "build.rs",
     data = glob(["**"]),
-    edition = "2015",
+    edition = "2018",
     rustc_flags = [
         "--cap-lints=allow",
     ],
@@ -55,35 +56,44 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "0.2.15",
+    version = "0.9.2",
     visibility = ["//visibility:private"],
     deps = [
-        "@raze__autocfg__1_1_0//:autocfg",
+        "@raze__openssl_sys__0_9_79//:openssl_sys",
     ],
 )
 
 rust_library(
-    name = "num_traits",
+    name = "hyper_openssl",
     srcs = glob(["**/*.rs"]),
     crate_features = [
-        "std",
+        "default",
+        "tcp",
     ],
     crate_root = "src/lib.rs",
     data = [],
-    edition = "2015",
+    edition = "2018",
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=num-traits",
+        "crate-name=hyper-openssl",
         "manual",
     ],
-    version = "0.2.15",
+    version = "0.9.2",
     # buildifier: leave-alone
     deps = [
-        ":num_traits_build_script",
+        ":hyper_openssl_build_script",
+        "@raze__http__0_2_8//:http",
+        "@raze__hyper__0_14_23//:hyper",
+        "@raze__linked_hash_set__0_1_4//:linked_hash_set",
+        "@raze__once_cell__1_13_1//:once_cell",
+        "@raze__openssl__0_10_44//:openssl",
+        "@raze__openssl_sys__0_9_79//:openssl_sys",
+        "@raze__parking_lot__0_12_1//:parking_lot",
+        "@raze__tokio__1_20_1//:tokio",
+        "@raze__tokio_openssl__0_6_3//:tokio_openssl",
+        "@raze__tower_layer__0_3_1//:tower_layer",
     ],
 )
-
-# Unsupported target "cast" with type "test" omitted

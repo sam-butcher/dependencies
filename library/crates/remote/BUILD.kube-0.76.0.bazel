@@ -32,26 +32,31 @@ licenses([
 # Generated Targets
 
 rust_library(
-    name = "fluvio_helm",
+    name = "kube",
     srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "client",
+        "config",
+        "default",
+        "kube-client",
+        "openssl-tls",
+    ],
     crate_root = "src/lib.rs",
     data = [],
-    edition = "2018",
+    edition = "2021",
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=fluvio_helm",
+        "crate-name=kube",
         "manual",
     ],
-    version = "0.4.3",
+    version = "0.76.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__fluvio_command__0_2_1//:fluvio_command",
-        "@raze__serde__1_0_145//:serde",
-        "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__thiserror__1_0_38//:thiserror",
-        "@raze__tracing__0_1_35//:tracing",
+        "@raze__k8s_openapi__0_16_0//:k8s_openapi",
+        "@raze__kube_client__0_76_0//:kube_client",
+        "@raze__kube_core__0_76_0//:kube_core",
     ],
 )

@@ -31,8 +31,8 @@ licenses([
 
 # Generated Targets
 
-rust_proc_macro(
-    name = "ghost",
+rust_library(
+    name = "dirs_next",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
@@ -42,20 +42,13 @@ rust_proc_macro(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=ghost",
+        "crate-name=dirs-next",
         "manual",
     ],
-    version = "0.1.6",
+    version = "2.0.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__proc_macro2__1_0_43//:proc_macro2",
-        "@raze__quote__1_0_21//:quote",
-        "@raze__syn__1_0_99//:syn",
+        "@raze__cfg_if__1_0_0//:cfg_if",
+        "@raze__dirs_sys_next__0_1_2//:dirs_sys_next",
     ],
 )
-
-# Unsupported target "autotraits" with type "test" omitted
-
-# Unsupported target "compiletest" with type "test" omitted
-
-# Unsupported target "readme" with type "test" omitted

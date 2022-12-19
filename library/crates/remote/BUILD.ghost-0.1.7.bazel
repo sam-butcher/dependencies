@@ -26,13 +26,13 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0"
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
 ])
 
 # Generated Targets
 
-rust_library(
-    name = "fluvio_helm",
+rust_proc_macro(
+    name = "ghost",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
@@ -42,16 +42,20 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=fluvio_helm",
+        "crate-name=ghost",
         "manual",
     ],
-    version = "0.4.3",
+    version = "0.1.7",
     # buildifier: leave-alone
     deps = [
-        "@raze__fluvio_command__0_2_1//:fluvio_command",
-        "@raze__serde__1_0_145//:serde",
-        "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__thiserror__1_0_38//:thiserror",
-        "@raze__tracing__0_1_35//:tracing",
+        "@raze__proc_macro2__1_0_43//:proc_macro2",
+        "@raze__quote__1_0_21//:quote",
+        "@raze__syn__1_0_99//:syn",
     ],
 )
+
+# Unsupported target "autotraits" with type "test" omitted
+
+# Unsupported target "compiletest" with type "test" omitted
+
+# Unsupported target "readme" with type "test" omitted
