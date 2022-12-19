@@ -22,7 +22,7 @@ enum_dispatch = "=0.3.8"
 fluvio-helm = "=0.4.3"
 futures = { version = "=0.3.21", features = ["executor", "thread-pool"] }
 itertools = "=0.10.3"
-kube = "=0.76.0"
+kube = { version = "=0.76.0", features = ["runtime", "derive"] }
 k8s-openapi = { version = "=0.16.0", features = ["v1_25"] }
 log = "=0.4.8"
 mime = "0.3.16"

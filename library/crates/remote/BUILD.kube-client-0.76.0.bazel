@@ -51,6 +51,7 @@ rust_library(
         "hyper",
         "hyper-openssl",
         "hyper-timeout",
+        "jsonpatch",
         "jsonpath_lib",
         "openssl",
         "openssl-tls",
