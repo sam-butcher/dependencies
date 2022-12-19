@@ -23,7 +23,7 @@ alias(
 
 alias(
     name = "async_trait",
-    actual = "@raze__async_trait__0_1_59//:async_trait",
+    actual = "@raze__async_trait__0_1_60//:async_trait",
     tags = [
         "cargo-raze",
         "manual",
@@ -139,6 +139,15 @@ alias(
 )
 
 alias(
+    name = "fluvio_helm",
+    actual = "@raze__fluvio_helm__0_4_3//:fluvio_helm",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
     name = "futures",
     actual = "@raze__futures__0_3_21//:futures",
     tags = [
@@ -150,6 +159,24 @@ alias(
 alias(
     name = "itertools",
     actual = "@raze__itertools__0_10_3//:itertools",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "k8s_openapi",
+    actual = "@raze__k8s_openapi__0_16_0//:k8s_openapi",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "kube",
+    actual = "@raze__kube__0_76_0//:kube",
     tags = [
         "cargo-raze",
         "manual",
@@ -266,7 +293,7 @@ alias(
 
 alias(
     name = "serde_json",
-    actual = "@raze__serde_json__1_0_89//:serde_json",
+    actual = "@raze__serde_json__1_0_91//:serde_json",
     tags = [
         "cargo-raze",
         "manual",

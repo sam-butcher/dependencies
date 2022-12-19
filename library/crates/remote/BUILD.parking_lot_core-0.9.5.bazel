@@ -38,7 +38,7 @@ load(
 )
 
 cargo_build_script(
-    name = "async_trait_build_script",
+    name = "parking_lot_core_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
@@ -52,15 +52,32 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "0.1.59",
+    version = "0.9.5",
     visibility = ["//visibility:private"],
     deps = [
-    ],
+    ] + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-apple-darwin",
+            "@rules_rust//rust/platform:x86_64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:aarch64-apple-darwin",
+        ): [
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@raze__windows_sys__0_42_0//:windows_sys",
+        ],
+        "//conditions:default": [],
+    }),
 )
 
-rust_proc_macro(
-    name = "async_trait",
+rust_library(
+    name = "parking_lot_core",
     srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
@@ -69,19 +86,30 @@ rust_proc_macro(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=async-trait",
+        "crate-name=parking_lot_core",
         "manual",
     ],
-    version = "0.1.59",
+    version = "0.9.5",
     # buildifier: leave-alone
     deps = [
-        ":async_trait_build_script",
-        "@raze__proc_macro2__1_0_43//:proc_macro2",
-        "@raze__quote__1_0_21//:quote",
-        "@raze__syn__1_0_99//:syn",
-    ],
+        ":parking_lot_core_build_script",
+        "@raze__cfg_if__1_0_0//:cfg_if",
+        "@raze__smallvec__1_9_0//:smallvec",
+    ] + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-apple-darwin",
+            "@rules_rust//rust/platform:x86_64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:aarch64-apple-darwin",
+        ): [
+            "@raze__libc__0_2_132//:libc",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@raze__windows_sys__0_42_0//:windows_sys",
+        ],
+        "//conditions:default": [],
+    }),
 )
-
-# Unsupported target "compiletest" with type "test" omitted
-
-# Unsupported target "test" with type "test" omitted

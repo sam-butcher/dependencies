@@ -38,7 +38,7 @@ load(
 )
 
 cargo_build_script(
-    name = "thiserror_build_script",
+    name = "async_trait_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
@@ -52,58 +52,36 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "1.0.37",
+    version = "0.1.60",
     visibility = ["//visibility:private"],
     deps = [
     ],
 )
 
-rust_library(
-    name = "thiserror",
+rust_proc_macro(
+    name = "async_trait",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
-    proc_macro_deps = [
-        "@raze__thiserror_impl__1_0_37//:thiserror_impl",
-    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=thiserror",
+        "crate-name=async-trait",
         "manual",
     ],
-    version = "1.0.37",
+    version = "0.1.60",
     # buildifier: leave-alone
     deps = [
-        ":thiserror_build_script",
+        ":async_trait_build_script",
+        "@raze__proc_macro2__1_0_43//:proc_macro2",
+        "@raze__quote__1_0_21//:quote",
+        "@raze__syn__1_0_99//:syn",
     ],
 )
 
 # Unsupported target "compiletest" with type "test" omitted
 
-# Unsupported target "test_backtrace" with type "test" omitted
-
-# Unsupported target "test_deprecated" with type "test" omitted
-
-# Unsupported target "test_display" with type "test" omitted
-
-# Unsupported target "test_error" with type "test" omitted
-
-# Unsupported target "test_expr" with type "test" omitted
-
-# Unsupported target "test_from" with type "test" omitted
-
-# Unsupported target "test_generics" with type "test" omitted
-
-# Unsupported target "test_lints" with type "test" omitted
-
-# Unsupported target "test_option" with type "test" omitted
-
-# Unsupported target "test_path" with type "test" omitted
-
-# Unsupported target "test_source" with type "test" omitted
-
-# Unsupported target "test_transparent" with type "test" omitted
+# Unsupported target "test" with type "test" omitted

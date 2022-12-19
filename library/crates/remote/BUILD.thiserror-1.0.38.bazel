@@ -38,16 +38,13 @@ load(
 )
 
 cargo_build_script(
-    name = "num_traits_build_script",
+    name = "thiserror_build_script",
     srcs = glob(["**/*.rs"]),
     build_script_env = {
     },
-    crate_features = [
-        "std",
-    ],
     crate_root = "build.rs",
     data = glob(["**"]),
-    edition = "2015",
+    edition = "2018",
     rustc_flags = [
         "--cap-lints=allow",
     ],
@@ -55,35 +52,58 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "0.2.15",
+    version = "1.0.38",
     visibility = ["//visibility:private"],
     deps = [
-        "@raze__autocfg__1_1_0//:autocfg",
     ],
 )
 
 rust_library(
-    name = "num_traits",
+    name = "thiserror",
     srcs = glob(["**/*.rs"]),
-    crate_features = [
-        "std",
-    ],
     crate_root = "src/lib.rs",
     data = [],
-    edition = "2015",
+    edition = "2018",
+    proc_macro_deps = [
+        "@raze__thiserror_impl__1_0_38//:thiserror_impl",
+    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=num-traits",
+        "crate-name=thiserror",
         "manual",
     ],
-    version = "0.2.15",
+    version = "1.0.38",
     # buildifier: leave-alone
     deps = [
-        ":num_traits_build_script",
+        ":thiserror_build_script",
     ],
 )
 
-# Unsupported target "cast" with type "test" omitted
+# Unsupported target "compiletest" with type "test" omitted
+
+# Unsupported target "test_backtrace" with type "test" omitted
+
+# Unsupported target "test_deprecated" with type "test" omitted
+
+# Unsupported target "test_display" with type "test" omitted
+
+# Unsupported target "test_error" with type "test" omitted
+
+# Unsupported target "test_expr" with type "test" omitted
+
+# Unsupported target "test_from" with type "test" omitted
+
+# Unsupported target "test_generics" with type "test" omitted
+
+# Unsupported target "test_lints" with type "test" omitted
+
+# Unsupported target "test_option" with type "test" omitted
+
+# Unsupported target "test_path" with type "test" omitted
+
+# Unsupported target "test_source" with type "test" omitted
+
+# Unsupported target "test_transparent" with type "test" omitted

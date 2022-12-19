@@ -26,35 +26,30 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # MIT from expression "MIT"
+    "notice",  # Apache-2.0 from expression "Apache-2.0 OR MIT"
 ])
 
 # Generated Targets
 
 rust_library(
-    name = "axum_core",
+    name = "signal_hook_registry",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
-    edition = "2021",
-    proc_macro_deps = [
-        "@raze__async_trait__0_1_60//:async_trait",
-    ],
+    edition = "2015",
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=axum-core",
+        "crate-name=signal-hook-registry",
         "manual",
     ],
-    version = "0.2.7",
+    version = "1.4.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__bytes__1_2_1//:bytes",
-        "@raze__futures_util__0_3_24//:futures_util",
-        "@raze__http__0_2_8//:http",
-        "@raze__http_body__0_4_5//:http_body",
-        "@raze__mime__0_3_16//:mime",
+        "@raze__libc__0_2_132//:libc",
     ],
 )
+
+# Unsupported target "unregister_signal" with type "test" omitted

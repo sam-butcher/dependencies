@@ -26,34 +26,54 @@ package(default_visibility = [
 ])
 
 licenses([
-    "restricted",  # GPL-3.0 from expression "GPL-3.0"
+    "notice",  # MIT from expression "MIT"
 ])
 
 # Generated Targets
 
+# Unsupported target "jsonpath_lib" with type "cdylib" omitted
+
 rust_library(
-    name = "alcoholic_jwt",
+    name = "jsonpath_lib",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
     edition = "2015",
-    proc_macro_deps = [
-        "@raze__serde_derive__1_0_145//:serde_derive",
-    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=alcoholic_jwt",
+        "crate-name=jsonpath_lib",
         "manual",
     ],
-    version = "4091.0.0",
+    version = "0.3.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__base64__0_13_0//:base64",
-        "@raze__openssl__0_10_44//:openssl",
+        "@raze__log__0_4_8//:log",
         "@raze__serde__1_0_145//:serde",
         "@raze__serde_json__1_0_91//:serde_json",
     ],
 )
+
+# Unsupported target "array_filter" with type "test" omitted
+
+# Unsupported target "common" with type "test" omitted
+
+# Unsupported target "filter" with type "test" omitted
+
+# Unsupported target "jsonpath_examples" with type "test" omitted
+
+# Unsupported target "lib" with type "test" omitted
+
+# Unsupported target "op" with type "test" omitted
+
+# Unsupported target "paths" with type "test" omitted
+
+# Unsupported target "precompile" with type "test" omitted
+
+# Unsupported target "readme" with type "test" omitted
+
+# Unsupported target "return_type" with type "test" omitted
+
+# Unsupported target "selector" with type "test" omitted

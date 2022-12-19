@@ -31,30 +31,24 @@ licenses([
 
 # Generated Targets
 
-# Unsupported target "flags" with type "example" omitted
-
 rust_library(
-    name = "inventory",
+    name = "dirs_next",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
-    edition = "2021",
-    proc_macro_deps = [
-        "@raze__ctor__0_1_26//:ctor",
-        "@raze__ghost__0_1_6//:ghost",
-    ],
+    edition = "2018",
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=inventory",
+        "crate-name=dirs-next",
         "manual",
     ],
-    version = "0.3.2",
+    version = "2.0.0",
     # buildifier: leave-alone
     deps = [
+        "@raze__cfg_if__1_0_0//:cfg_if",
+        "@raze__dirs_sys_next__0_1_2//:dirs_sys_next",
     ],
 )
-
-# Unsupported target "compiletest" with type "test" omitted

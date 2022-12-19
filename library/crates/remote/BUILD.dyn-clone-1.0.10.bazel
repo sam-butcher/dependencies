@@ -26,35 +26,35 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # MIT from expression "MIT"
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
 ])
 
 # Generated Targets
 
+# Unsupported target "readme" with type "example" omitted
+
 rust_library(
-    name = "axum_core",
+    name = "dyn_clone",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
-    edition = "2021",
-    proc_macro_deps = [
-        "@raze__async_trait__0_1_60//:async_trait",
-    ],
+    edition = "2018",
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=axum-core",
+        "crate-name=dyn-clone",
         "manual",
     ],
-    version = "0.2.7",
+    version = "1.0.10",
     # buildifier: leave-alone
     deps = [
-        "@raze__bytes__1_2_1//:bytes",
-        "@raze__futures_util__0_3_24//:futures_util",
-        "@raze__http__0_2_8//:http",
-        "@raze__http_body__0_4_5//:http_body",
-        "@raze__mime__0_3_16//:mime",
     ],
 )
+
+# Unsupported target "compiletest" with type "test" omitted
+
+# Unsupported target "macros" with type "test" omitted
+
+# Unsupported target "trait" with type "test" omitted
