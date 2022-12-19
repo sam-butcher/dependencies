@@ -32,8 +32,12 @@ licenses([
 # Generated Targets
 
 rust_library(
-    name = "cfg_if",
+    name = "treediff",
     srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "serde_json",
+        "with-serde-json",
+    ],
     crate_root = "src/lib.rs",
     data = [],
     edition = "2018",
@@ -42,13 +46,12 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=cfg-if",
+        "crate-name=treediff",
         "manual",
     ],
-    version = "0.1.10",
+    version = "4.0.2",
     # buildifier: leave-alone
     deps = [
+        "@raze__serde_json__1_0_91//:serde_json",
     ],
 )
-
-# Unsupported target "xcrate" with type "test" omitted

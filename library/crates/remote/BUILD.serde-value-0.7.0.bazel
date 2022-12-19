@@ -49,6 +49,6 @@ rust_library(
     # buildifier: leave-alone
     deps = [
         "@raze__ordered_float__2_10_0//:ordered_float",
-        "@raze__serde__1_0_145//:serde",
+        "@raze__serde__1_0_149//:serde",
     ],
 )

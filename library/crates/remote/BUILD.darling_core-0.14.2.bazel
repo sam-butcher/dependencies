@@ -54,9 +54,9 @@ rust_library(
     deps = [
         "@raze__fnv__1_0_7//:fnv",
         "@raze__ident_case__1_0_1//:ident_case",
-        "@raze__proc_macro2__1_0_43//:proc_macro2",
+        "@raze__proc_macro2__1_0_49//:proc_macro2",
         "@raze__quote__1_0_21//:quote",
         "@raze__strsim__0_10_0//:strsim",
-        "@raze__syn__1_0_99//:syn",
+        "@raze__syn__1_0_107//:syn",
     ],
 )

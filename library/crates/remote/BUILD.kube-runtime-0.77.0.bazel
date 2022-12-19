@@ -31,33 +31,40 @@ licenses([
 
 # Generated Targets
 
-rust_proc_macro(
-    name = "kube_derive",
+rust_library(
+    name = "kube_runtime",
     srcs = glob(["**/*.rs"]),
     crate_root = "src/lib.rs",
     data = [],
     edition = "2021",
+    proc_macro_deps = [
+        "@raze__derivative__2_2_0//:derivative",
+    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],
     tags = [
         "cargo-raze",
-        "crate-name=kube-derive",
+        "crate-name=kube-runtime",
         "manual",
     ],
-    version = "0.76.0",
+    version = "0.77.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__darling__0_14_2//:darling",
-        "@raze__proc_macro2__1_0_43//:proc_macro2",
-        "@raze__quote__1_0_21//:quote",
+        "@raze__ahash__0_8_2//:ahash",
+        "@raze__backoff__0_4_0//:backoff",
+        "@raze__futures__0_3_21//:futures",
+        "@raze__json_patch__0_3_0//:json_patch",
+        "@raze__k8s_openapi__0_16_0//:k8s_openapi",
+        "@raze__kube_client__0_77_0//:kube_client",
+        "@raze__parking_lot__0_12_1//:parking_lot",
+        "@raze__pin_project__1_0_12//:pin_project",
+        "@raze__serde__1_0_149//:serde",
         "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__syn__1_0_99//:syn",
+        "@raze__smallvec__1_9_0//:smallvec",
+        "@raze__thiserror__1_0_38//:thiserror",
+        "@raze__tokio__1_20_1//:tokio",
+        "@raze__tokio_util__0_7_3//:tokio_util",
+        "@raze__tracing__0_1_36//:tracing",
     ],
 )
-
-# Unsupported target "crd_enum_test" with type "test" omitted
-
-# Unsupported target "crd_schema_test" with type "test" omitted
-
-# Unsupported target "test_ui" with type "test" omitted

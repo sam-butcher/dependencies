@@ -31,13 +31,28 @@ licenses([
 
 # Generated Targets
 
+# Unsupported target "chrono" with type "bench" omitted
+
+# Unsupported target "serde" with type "bench" omitted
+
 rust_library(
-    name = "json_patch",
+    name = "chrono",
     srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
     crate_features = [
+        "alloc",
+        "clock",
         "default",
-        "diff",
-        "treediff",
+        "iana-time-zone",
+        "js-sys",
+        "oldtime",
+        "serde",
+        "std",
+        "time",
+        "wasm-bindgen",
+        "wasmbind",
+        "winapi",
     ],
     crate_root = "src/lib.rs",
     data = [],
@@ -47,16 +62,27 @@ rust_library(
     ],
     tags = [
         "cargo-raze",
-        "crate-name=json-patch",
+        "crate-name=chrono",
         "manual",
     ],
-    version = "0.2.7",
+    version = "0.4.23",
     # buildifier: leave-alone
     deps = [
-        "@raze__serde__1_0_145//:serde",
-        "@raze__serde_json__1_0_91//:serde_json",
-        "@raze__treediff__3_0_2//:treediff",
-    ],
+        "@raze__iana_time_zone__0_1_53//:iana_time_zone",
+        "@raze__num_integer__0_1_45//:num_integer",
+        "@raze__num_traits__0_2_15//:num_traits",
+        "@raze__serde__1_0_149//:serde",
+        "@raze__time__0_1_45//:time",
+    ] + selects.with_or({
+        (
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@raze__winapi__0_3_9//:winapi",
+        ],
+        "//conditions:default": [],
+    }),
 )
 
-# Unsupported target "bench" with type "test" omitted
+# Unsupported target "dateutils" with type "test" omitted
+
+# Unsupported target "wasm" with type "test" omitted

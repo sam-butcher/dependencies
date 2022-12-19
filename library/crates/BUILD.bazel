@@ -50,7 +50,7 @@ alias(
 
 alias(
     name = "chrono",
-    actual = "@raze__chrono__0_4_22//:chrono",
+    actual = "@raze__chrono__0_4_23//:chrono",
     tags = [
         "cargo-raze",
         "manual",
@@ -176,7 +176,7 @@ alias(
 
 alias(
     name = "kube",
-    actual = "@raze__kube__0_76_0//:kube",
+    actual = "@raze__kube__0_77_0//:kube",
     tags = [
         "cargo-raze",
         "manual",
@@ -185,7 +185,7 @@ alias(
 
 alias(
     name = "log",
-    actual = "@raze__log__0_4_8//:log",
+    actual = "@raze__log__0_4_17//:log",
     tags = [
         "cargo-raze",
         "manual",
@@ -284,7 +284,7 @@ alias(
 
 alias(
     name = "serde",
-    actual = "@raze__serde__1_0_145//:serde",
+    actual = "@raze__serde__1_0_149//:serde",
     tags = [
         "cargo-raze",
         "manual",

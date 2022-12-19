@@ -50,7 +50,7 @@ rust_library(
     deps = [
         "@raze__indexmap__1_9_1//:indexmap",
         "@raze__ryu__1_0_12//:ryu",
-        "@raze__serde__1_0_145//:serde",
+        "@raze__serde__1_0_149//:serde",
         "@raze__yaml_rust__0_4_5//:yaml_rust",
     ],
 )

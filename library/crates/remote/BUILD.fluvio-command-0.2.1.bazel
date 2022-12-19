@@ -49,6 +49,6 @@ rust_library(
     # buildifier: leave-alone
     deps = [
         "@raze__thiserror__1_0_38//:thiserror",
-        "@raze__tracing__0_1_35//:tracing",
+        "@raze__tracing__0_1_36//:tracing",
     ],
 )

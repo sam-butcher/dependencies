@@ -95,7 +95,7 @@ rust_library(
         "@raze__indexmap__1_9_1//:indexmap",
         "@raze__itoa__1_0_3//:itoa",
         "@raze__ryu__1_0_12//:ryu",
-        "@raze__serde__1_0_145//:serde",
+        "@raze__serde__1_0_149//:serde",
     ],
 )
 

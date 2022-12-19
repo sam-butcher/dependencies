@@ -57,7 +57,7 @@ cargo_build_script(
         "cargo-raze",
         "manual",
     ],
-    version = "1.0.43",
+    version = "1.0.49",
     visibility = ["//visibility:private"],
     deps = [
     ],
@@ -82,7 +82,7 @@ rust_library(
         "crate-name=proc-macro2",
         "manual",
     ],
-    version = "1.0.43",
+    version = "1.0.49",
     # buildifier: leave-alone
     deps = [
         ":proc_macro2_build_script",
