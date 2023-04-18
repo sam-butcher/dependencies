@@ -16,7 +16,7 @@
 #
 
 def _rust_tonic_compile_impl(ctx):
-    protos = [src[ProtoInfo].direct_sources[0] for src in ctx.attr.srcs]
+    protos = [proto for src in ctx.attr.srcs for proto in src[ProtoInfo].direct_sources]
 
     inputs = ctx.attr.protoc.files.to_list() + protos
     outputs = [ctx.actions.declare_file("{}.rs".format(package)) for package in ctx.attr.packages]
