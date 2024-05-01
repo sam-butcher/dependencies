@@ -39,6 +39,7 @@ artifacts = {
     "com.google.api.grpc:proto-google-common-protos" : "2.9.0",
     "com.google.api:gax": "1.64.0",
     "com.google.api:gax-grpc": "1.64.0",
+    "com.google.apis:google-api-services-runtimeconfig": "v1beta1-rev20240227-2.0.0",
     "com.google.auth:google-auth-library-credentials": "1.6.0",
     "com.google.auth:google-auth-library-oauth2-http" : "1.6.0",
     "com.google.auto.value:auto-value" : "1.9",
