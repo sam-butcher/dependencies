@@ -148,6 +148,7 @@ artifacts = {
     "io.ktor:ktor-client-cio-jvm": "2.3.7",
     "io.ktor:ktor-client-content-negotiation-jvm": "2.3.7",
     "io.ktor:ktor-client-core-jvm": "2.3.7",
+    "io.ktor:ktor-client-java-jvm": "2.3.7",
     "io.ktor:ktor-client-websockets-jvm": "2.3.7",
     "io.ktor:ktor-serialization-gson-jvm": "2.3.7",
     "io.ktor:ktor-serialization-jackson-jvm": "2.3.7",
