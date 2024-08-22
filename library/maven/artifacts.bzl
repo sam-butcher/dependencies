@@ -156,6 +156,7 @@ artifacts = {
     "io.ktor:ktor-serialization-kotlinx-protobuf-jvm": "2.3.7",
     "io.ktor:ktor-server-auth-jvm": "2.3.7",
     "io.ktor:ktor-server-auth-jwt-jvm": "2.3.7",
+    "io.ktor:ktor-server-call-logging-jvm": "2.3.7",
     "io.ktor:ktor-server-content-negotiation-jvm": "2.3.7",
     "io.ktor:ktor-server-core-jvm": "2.3.7",
     "io.ktor:ktor-server-netty-jvm": "2.3.7",
